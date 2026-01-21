@@ -82,10 +82,23 @@ public class VentaService implements IVentaService {
                 .orElseThrow(() -> new NotFoundException("Venta no encontrada"));
         validarVentaDto(ventaDto);
 
+        if (ventaDto.getFecha() != null) {
+            venta.setFecha(ventaDto.getFecha());
+        }
+        if (ventaDto.getEstado() != null) {
+            venta.setEstado(ventaDto.getEstado());
+        }
+        if (ventaDto.getTotal() != null) {
+            venta.setTotal(ventaDto.getTotal());
+        }
+        if (ventaDto.getIdSucursal() != null) {
+            Sucursal suc = sucursalRepository.findById(ventaDto.getIdSucursal())
+                    .orElseThrow(() -> new NotFoundException("Sucursal no encontrada"));
+            venta.setSucursal(suc);
+        }
+        Venta ventaGuardada = ventaRepository.save(venta);
 
-
-
-        return null;
+        return Mapper.toDTO(ventaGuardada);
     }
 
     @Override
