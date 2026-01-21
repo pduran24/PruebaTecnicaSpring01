@@ -54,7 +54,7 @@ public class VentaService implements IVentaService {
         List<DetalleVenta> detalles = ventaDto.getDetalle().stream()
                 .map(detalleVentaDTO -> {
                     //Buscar el producto
-                    Producto p = productoRepository.findByName(detalleVentaDTO.getNombreProducto())
+                    Producto p = productoRepository.findByNombre(detalleVentaDTO.getNombreProducto())
                             .orElseThrow(() -> new NotFoundException("Producto no encontrado"));
                     //Construir el detalleVenta
                     return DetalleVenta.builder()

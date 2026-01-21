@@ -6,6 +6,7 @@ import lombok.*;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Builder
 public class DetalleVenta {
     @Id
