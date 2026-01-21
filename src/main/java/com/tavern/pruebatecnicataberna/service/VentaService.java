@@ -1,6 +1,5 @@
 package com.tavern.pruebatecnicataberna.service;
 
-import com.tavern.pruebatecnicataberna.dto.DetalleVentaDTO;
 import com.tavern.pruebatecnicataberna.dto.VentaDTO;
 import com.tavern.pruebatecnicataberna.exception.NotFoundException;
 import com.tavern.pruebatecnicataberna.mapper.Mapper;
@@ -14,7 +13,6 @@ import com.tavern.pruebatecnicataberna.repository.VentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
