@@ -94,6 +94,23 @@ public class VentaService implements IVentaService {
                     .orElseThrow(() -> new NotFoundException("Sucursal no encontrada"));
             venta.setSucursal(suc);
         }
+        if (ventaDto.getDetalle() != null) {
+            List<DetalleVenta> nuevosDetalles = ventaDto.getDetalle().stream()
+                    .map(detalleVentaDTO ->  {
+                       Producto p = productoRepository.findByNombre(detalleVentaDTO.getNombreProducto())
+                               .orElseThrow(() -> new NotFoundException("Producto no encontrado"));
+                       return DetalleVenta.builder()
+                               .producto(p)
+                               .cantidadProducto(detalleVentaDTO.getCantidad())
+                               .precio(detalleVentaDTO.getPrecio())
+                               .venta(venta)
+                               .build();
+                    }).toList();
+
+            venta.getDetalleVenta().clear();
+            venta.getDetalleVenta().addAll(nuevosDetalles);
+        }
+
         Venta ventaGuardada = ventaRepository.save(venta);
 
         return Mapper.toDTO(ventaGuardada);

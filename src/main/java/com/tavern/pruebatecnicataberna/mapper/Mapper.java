@@ -49,6 +49,7 @@ public class Mapper {
                 .id(venta.getId())
                 .fecha(venta.getFecha())
                 .estado(venta.getEstado())
+                .idSucursal(venta.getSucursal().getId())
                 .detalle(detalle)
                 .total(total)
                 .build();

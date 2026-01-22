@@ -14,11 +14,13 @@ public class DetalleVenta {
     private Long id;
 
     //Venta
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="ventaId")
     private Venta venta;
 
     //Producto
     @ManyToOne
+    @JoinColumn(name="productoId")
     private Producto producto;
     private Integer cantidadProducto;
     private Double precio;
