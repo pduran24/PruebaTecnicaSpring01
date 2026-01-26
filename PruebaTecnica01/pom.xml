@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.tavern</groupId>
     <artifactId>PruebaTecnicaTaberna</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>PruebaTecnica01</name>
     <description>PruebaTecnica01</description>
     <url/>
@@ -42,6 +42,7 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
+            <version>9.5.0</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
